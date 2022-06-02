@@ -33,6 +33,8 @@ const moviesService = {
         return axiosService.get(url, {params: {}});
     },
     getMoviesList: (type, params) => {
+        console.log(type)
+        console.log(params)
         const url = 'movie/' + movieType[type];
         return axiosService.get(url, params);
     },
@@ -48,6 +50,12 @@ const moviesService = {
         const url = 'search/' + moviesCategory[cate];
         return axiosService.get(url, params);
     },
+    genres: (cate, params) => {
+        console.log(type)
+        console.log(params)
+        const url = 'genre/' + moviesCategory[cate] + '/list';
+        return axiosService.get(url, params)
+    }
 }
 
 export {moviesService};

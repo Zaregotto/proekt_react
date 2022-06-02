@@ -1,0 +1,15 @@
+@use "../../scss/breakpoin" as *;
+
+.movie-list {
+  .swiper-slide {
+    width: 25%;
+
+    @include tablet {
+      width: 45%;
+    }
+
+    @include mobile {
+      width: 60%;
+    }
+  }
+}

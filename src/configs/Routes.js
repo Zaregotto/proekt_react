@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import {Catalog, Details, Home, NotFoundPage} from "../pages";
+import {Catalog, Details, Home, NotFoundPage} from "../containers";
 
 
 

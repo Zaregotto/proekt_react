@@ -7,12 +7,14 @@ import {Footer} from "./components/footer";
 import {AppRoutes} from "./configs";
 
 
+
 function App() {
   return (
       <div className='background'>
           <Header/>
       <AppRoutes/>
           <Footer/>
+
       </div>
   );
 }
