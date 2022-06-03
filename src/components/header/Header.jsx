@@ -5,6 +5,7 @@ import { Link, useLocation } from "react-router-dom";
 import './header.scss';
 
 import logo from '../../resources/logo.jpeg'
+import {useNavigate} from 'react-router-dom';
 
 const headerNav = [
     {
@@ -21,11 +22,11 @@ const headerNav = [
     },
 
 ]
-const Header = () => {
-
+const Header = (params) => {
+    const { setCategory } = params;
     const { pathname } = useLocation();
     const headerRef = useRef(null);
-
+    const navigate = useNavigate();
     const active = headerNav.findIndex(e => e.path === pathname);
 
     useEffect(() => {
@@ -53,9 +54,13 @@ const Header = () => {
                     {
                         headerNav.map((e, i) => (
                             <li key={i} className={`${i === active ? 'active' : ''}`}>
-                                <Link to={e.path}>
+                                <button onClick={()=>{
+                                        console.log(e.path);
+                                        navigate(e.path, {replace: true})
+                                        setCategory(e.path.replace('/',''))
+                                    }}>
                                     {e.display}
-                                </Link>
+                                </button>
                             </li>
                         ))
                     }

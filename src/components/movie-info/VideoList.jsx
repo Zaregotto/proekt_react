@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 
 import {useParams} from "react-router";
 
-import {moviesService} from "../../services";
+import {moviesService} from "../../services/movies.service";
 
 const VideoList = props => {
 

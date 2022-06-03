@@ -58,5 +58,5 @@ const moviesService = {
     }
 }
 
-export {moviesService};
+export { moviesService };
 

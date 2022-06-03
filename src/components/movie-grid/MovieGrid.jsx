@@ -7,7 +7,7 @@ import './movie-grid.scss'
 import {Button} from "../button";
 import {Input} from "../input";
 
-import {moviesCategory} from "../../services";
+import {moviesCategory} from "../../services/movies.service";
 
 
 const MovieSearch = props => {

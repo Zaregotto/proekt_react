@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 
 import { useParams } from "react-router";
-import {moviesService} from "../../services";
+import {moviesService} from "../../services/movies.service";
 import {apiConfig} from "../../constants";
 
 const CastList = props => {

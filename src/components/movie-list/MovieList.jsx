@@ -5,7 +5,7 @@ import './movie-list.scss'
 
 import { SwiperSlide, Swiper } from "swiper/react";
 
-import {moviesService, moviesCategory} from "../../services";
+import {moviesService, moviesCategory} from "../../services/movies.service";
 
 
 import {MovieCard} from "../movie-card";

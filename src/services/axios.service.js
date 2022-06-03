@@ -1,6 +1,6 @@
 import axios from "axios";
 import queryString from "query-string";
-import {apiConfig} from "../constants";
+import { apiConfig } from "../constants";
 
 
 const axiosService = axios.create({

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 import {Button} from "../button";
 
-import {moviesCategory} from "../../services";
+import {moviesCategory} from "../../services/movies.service";
 import {apiConfig} from "../../constants";
 import {Badge} from "@mui/material";
 

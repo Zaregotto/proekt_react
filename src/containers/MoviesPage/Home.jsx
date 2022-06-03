@@ -6,7 +6,7 @@ import {HeroSlide} from "../../components/hero-slide";
 import {MovieList} from "../../components/movie-list";
 import {OutlineButton} from "../../components/button";
 
-import {moviesCategory, movieType, tvType} from "../../services";
+import {moviesCategory, movieType, tvType} from "../../services/movies.service";
 
 
 const Home = () => {

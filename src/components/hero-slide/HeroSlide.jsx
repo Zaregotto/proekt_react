@@ -1,4 +1,4 @@
-import {useEffect, useRef, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 
 import SwiperCore, { Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -7,7 +7,7 @@ import {Button, OutlineButton} from "../button";
 import {Modal, ModalContent} from "../modal";
 
 
-import {moviesCategory, moviesService, movieType} from "../../services";
+import {moviesCategory, moviesService, movieType} from "../../services/movies.service";
 import {apiConfig} from "../../constants";
 
 import { useNavigate } from 'react-router-dom'

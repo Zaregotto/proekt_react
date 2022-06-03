@@ -7,7 +7,6 @@ import {Catalog, Details, Home, NotFoundPage} from "../containers";
 
 const AppRoutes = () => {
     return (
-        <div>
             <Routes>
                 <Route
                     path='/:category/search/:keyword'
@@ -31,7 +30,6 @@ const AppRoutes = () => {
                     element={<NotFoundPage/>}
                     />
             </Routes>
-        </div>
     );
 };
 

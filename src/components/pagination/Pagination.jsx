@@ -2,11 +2,11 @@ import React, {useEffect, useState} from 'react';
 import {useParams} from "react-router-dom";
 
 
-import {moviesCategory, moviesService, movieType, tvType} from "../../services";
+import {moviesCategory, moviesService, movieType, tvType} from "../../services/movies.service";
 import {MovieCard} from "../movie-card";
 import {OutlineButton} from "../button";
 import {MovieSearch} from "../movie-grid";
-import {Genres} from "../GenreBadge";
+import Genres from "../GenreBadge/genreContainer";
 
 
 const Pagination = props => {
@@ -70,7 +70,7 @@ const Pagination = props => {
         <>
             <div className="section mb-3">
                 <MovieSearch category={props.category} keyword={keyword}/>
-                <Genres/>
+                <Genres />
             </div>
             <div className="movie-grid">
                 {

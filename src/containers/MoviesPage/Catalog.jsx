@@ -2,7 +2,7 @@ import React from 'react';
 
 import {useParams} from "react-router";
 
-import {moviesCategory as cate} from "../../services";
+import {moviesCategory as cate} from "../../services/movies.service";
 
 import {PageHeader} from "../../components/page-header";
 import {Pagination} from "../../components/pagination";
