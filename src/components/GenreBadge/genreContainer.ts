@@ -1,7 +1,9 @@
-import { AppDispatch, RootState } from './../../store';
-import { Genres } from "./genres"
-import { GenreState, setGenre } from "./genreSlice"
+import { AppDispatch, RootState } from '../../store';
+
 import { connect } from 'react-redux';
+
+import { Genres } from "./genres"
+import { setGenre } from "./genreSlice"
 
 const mapDispatchToProps = (dispatch: AppDispatch) => {
   return {

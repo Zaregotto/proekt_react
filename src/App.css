@@ -1,3 +1,8 @@
 @import 'swiper/swiper.min.css';
 .background {
 }
+
+body {
+    margin: 0;
+    padding: 0;
+}

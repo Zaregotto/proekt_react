@@ -16,16 +16,16 @@ module.exports = {
     },
     module: {
         rules: [{
-                test: /\.jsx?$/,
-                exclude: /node_modules/,
-                loader: 'babel-loader'
-            },
+            test: /\.jsx?$/,
+            exclude: /node_modules/,
+            loader: 'babel-loader'
+        },
             {
                 test: /\.tsx?$/,
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
-            {   
+            {
                 exclude: "/node_modules/",
                 test: '/\.css$/',
                 use: ['style-loader','css-loader'],
@@ -34,31 +34,31 @@ module.exports = {
                 test: /\.(css|scss)$/,
                 exclude: /node_modules/,
                 use: [
-                  MiniCssExtractPlugin.loader,
-                  'css-loader',
-                  "postcss-loader",
-                  'sass-loader',
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                    "postcss-loader",
+                    'sass-loader',
                 ]
             },
             {
-                test: /\.(jpe?g|png|gif|svg)$/i, 
+                test: /\.(jpe?g|png|gif|svg)$/i,
                 loader: 'file-loader',
                 options: {
-                  name: '/public/icons/[name].[ext]'
+                    name: '/public/icons/[name].[ext]'
                 }
             },
             {
                 test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
                 use: [
-                  {
-                    loader: 'file-loader',
-                    options: {
-                      name: '[name].[ext]',
-                      outputPath: 'fonts/'
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: '[name].[ext]',
+                            outputPath: 'fonts/'
+                        }
                     }
-                  }
                 ]
-              }
+            }
         ]
     },
     resolve: {

@@ -1,14 +1,20 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
+import {string} from "prop-types";
 
 export interface GenreState {
+  movieGenreList: {},
+  tvGenreList: {}
   currentGenre: string,
-  genres:[]
+  genres: []
 }
 
 const initialState: GenreState = {
+  movieGenreList: {},
+  tvGenreList: {},
   currentGenre: '',
-  genres:[]
+  genres: []
 }
+
 
 export const genreSlice = createSlice({
   name: 'genre',
@@ -19,10 +25,24 @@ export const genreSlice = createSlice({
     },
     setListGenre: (state, action: PayloadAction<[]>) => {
       state.genres = action.payload;
-    }
+    },
+    setMoviesByGenre: (state, action: PayloadAction<{id: string, list: []}>) => {
+      console.log("setMoviesByGenre", action)
+      state.movieGenreList = {
+        ...state.movieGenreList,
+      [action.payload.id]: action.payload.list
+      };
+    },
+    setTvByGenre: (state, action: PayloadAction<{id: string, list: []}>) => {
+      console.log("setTvByGenre", action)
+      state.tvGenreList = {
+        ...state.tvGenreList,
+        [action.payload.id]: action.payload.list
+      };
+    },
   },
 })
 
-export const { setGenre, setListGenre } = genreSlice.actions
+export const { setGenre, setListGenre, setMoviesByGenre } = genreSlice.actions
 
 export default genreSlice.reducer

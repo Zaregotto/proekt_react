@@ -30,7 +30,8 @@
     "redux": "^4.2.0",
     "sass": "^1.52.1",
     "swiper": "^6.8.4",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "styled-components" : "^5.3.5"
   },
   "scripts": {
     "test": "karma start",
