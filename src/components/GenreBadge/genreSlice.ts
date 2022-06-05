@@ -1,5 +1,4 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import {string} from "prop-types";
 
 export interface GenreState {
   movieGenreList: {},
@@ -43,6 +42,6 @@ export const genreSlice = createSlice({
   },
 })
 
-export const { setGenre, setListGenre, setMoviesByGenre } = genreSlice.actions
+export const { setGenre, setListGenre, setMoviesByGenre, setTvByGenre } = genreSlice.actions
 
 export default genreSlice.reducer

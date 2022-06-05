@@ -8,8 +8,7 @@ import {OutlineButton} from "../Button";
 import {MovieSearch} from "../Movie-grid";
 import Genres from "../GenreBadge/genreContainer";
 import {connect} from "react-redux";
-import {AppDispatch} from "../../store";
-import {setMoviesByGenre} from "../GenreBadge/genreSlice";
+import {setMoviesByGenre, setTvByGenre} from "../GenreBadge/genreSlice";
 
 
 const Pagination = props => {
@@ -19,7 +18,7 @@ const Pagination = props => {
     const [page, setPage] = useState(1);
     const [totalPage, setTotalPage] = useState(0);
     const { keyword } = useParams();
-    const {setMoviesByGenre, genresList} = props
+    const {setMoviesByGenre, setTvByGenre, tvGenreList, movieGenreList} = props
 
     useEffect(() => {
         const getList = async () => {
@@ -72,13 +71,20 @@ const Pagination = props => {
         const getGenre = async (id) => {
             let response = null
             if (keyword === undefined) {
-                const params = {};
-                switch (props.movie) {
+                switch (props.category) {
                     case  moviesCategory.movie:
-                        response = await moviesService.getListByGenreId(id, {params: {}})
+                        response = await moviesService.getMovieListByGenreId(id, {params: {}})
+                        setMoviesByGenre({
+                            id: props.currentGenre,
+                            list: response.results
+                        })
                         break;
                     default:
-                        response = await moviesService.getMovieListByGenreId(id, {params: {}})
+                        response = await moviesService.getTvListByGenreId(id, {params: {}})
+                        setTvByGenre({
+                            id: props.currentGenre,
+                            list: response.results
+                        })
                 }
             }else {
                 const params = {
@@ -86,19 +92,25 @@ const Pagination = props => {
                 }
                 response = await moviesService.search(props.category, {params});
             }
-            setMoviesByGenre({
-                id: props.currentGenre,
-                list: response.results
-            })
-            console.log(genresList)
             setItems(response.results);
             setTotalPage(response.total_pages);
+            console.log(response, items);
         }
         if (props.currentGenre) {
-            if (genresList.hasOwnProperty(props.currentGenre) && genresList[props.currentGenre].length){
-                setItems(genresList[props.currentGenre])
+            if (movieGenreList && tvGenreList){
+                switch(props.category) {
+                    case moviesCategory.movie:
+                        if (movieGenreList.hasOwnProperty(props.currentGenre) && movieGenreList[props.currentGenre].length) {
+                            setItems(movieGenreList[props.currentGenre])
+                        } else {getGenre(props.currentGenre)}
+                        break;
+                    default:
+                        if (tvGenreList.hasOwnProperty(props.currentGenre) && tvGenreList[props.currentGenre].length) {
+                            setItems(tvGenreList[props.currentGenre])
+                        } else {getGenre(props.currentGenre)}
+                }
             }else {
-                getGenre (props.currentGenre)
+                getGenre(props.currentGenre)
             }
         }
     }, [props.currentGenre])
@@ -112,7 +124,7 @@ const Pagination = props => {
             </div>
             <div className="movie-grid">
                 {
-                    items.map((item, i) => <MovieCard category={props.category} item={item} key={i}/>)
+                    items.length && items.map((item, i) => <MovieCard category={props.category} item={item} key={i}/>)
                 }
             </div>
             {
@@ -126,13 +138,13 @@ const Pagination = props => {
     );
 }
 function mapStateToProps(state) {
-    const { genres, currentGenre, genresList  } = state.genreReducer;
-    return { genres, currentGenre, genresList }
+    const { genres, currentGenre, movieGenreList, tvGenreList  } = state.genreReducer;
+    return { genres, currentGenre, movieGenreList, tvGenreList }
 }
 const mapDispatchToProps = (dispatch) => {
     return {
-        setMoviesByGenre: (movieList) => dispatch(setMoviesByGenre(movieList))
-        // setGenre: (id: string) => dispatch(setGenre(id)),
+        setMoviesByGenre: (movieList) => dispatch(setMoviesByGenre(movieList)),
+        setTvByGenre: (tvList) => dispatch(setTvByGenre(tvList))
     }
 }
 export default connect(mapStateToProps, mapDispatchToProps)(Pagination);

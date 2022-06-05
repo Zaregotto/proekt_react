@@ -52,11 +52,11 @@ const moviesService = {
         const url = 'genre/' + moviesCategory[cate] + '/list';
         return axiosService.get(url, params)
     },
-    getListByGenreId: (id, params) => {
+    getMovieListByGenreId: (id, params) => {
         const url = `discover/movie/`
         return axiosService.get(url, {params:{with_genres: id, ...params}})
     },
-    getMovieListByGenreId: (id, params) => {
+    getTvListByGenreId: (id, params) => {
       const url = `discover/tv/`
       return axiosService.get(url, {params:{with_genres: id, ...params}})
     }
