@@ -1,0 +1,17 @@
+.user {
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
+}
+.userInfo {
+    color: purple;
+    display: flex;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 30px;
+    text-decoration: none;
+}
+img {
+    width: 50px;
+    height: 50px;
+}

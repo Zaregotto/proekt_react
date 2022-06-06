@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 
-import Header from "./components/Header/headerContainer";
-import { Footer} from "./components/Footer";
+import Header from "./components/header/headerContainer";
+import { Footer} from "./components/footer";
 import { AppRoutes} from "./Configs";
 
 

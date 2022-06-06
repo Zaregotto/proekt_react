@@ -4,8 +4,8 @@ import {useParams} from "react-router";
 
 import {moviesCategory as cate} from "../../Services/movies.service";
 
-import {PageHeader} from "../../components/Page-header";
-import Pagination from "../../components/Pagination/pagination";
+import {PageHeader} from "../../components/page-header";
+import Pagination from "../../components/pagination/Pagination";
 
 const Catalog = () => {
 

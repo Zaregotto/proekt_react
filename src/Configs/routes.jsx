@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 
-import {Catalog, Details, Home, NotFoundPage} from "../Containers";
+import {Catalog, Details, Home,} from "../Containers";
 
 
 
@@ -25,10 +25,6 @@ const AppRoutes = () => {
                     exact
                     element={<Home/>}
                 />
-                <Route
-                    path='*'
-                    element={<NotFoundPage/>}
-                    />
             </Routes>
     );
 };

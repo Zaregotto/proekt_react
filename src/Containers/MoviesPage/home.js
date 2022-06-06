@@ -2,11 +2,11 @@ import React from "react";
 
 import {Link} from "react-router-dom";
 
-import {HeroSlide} from "../../components/Hero-slide";
-import {MovieList} from "../../components/Movie-list";
-import {OutlineButton} from "../../components/Button";
+import {HeroSlide} from "../../components/hero-slide";
+import {MovieList} from "../../components/movie-list";
+import {OutlineButton} from "../../components/button";
 
-import {moviesCategory, movieType, tvType} from "../../Services/movies.service";
+import {moviesCategory, movieType, tvType} from "../../Services";
 
 
 const Home = () => {
